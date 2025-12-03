@@ -1,2 +1,2 @@
-# CoreToCode_DevOrDie_2025
-An AI-powered document intelligence tool that lets users upload files, extract text, generate summaries, auto-categorize content, and get meaning based tag suggestions. Designed for fast, clean, and interactive document understanding,no login required for instant analysis.
+# Core2Code_DevOrDie_2025
+RangerOps Hub provides a centralized system where Rangers can report issues, engineers can resolve them, and admins can monitor Command Center operations. It includes workflows, SLA tracking, assignments, dashboards, analytics, and real-time notifications to ensure smooth facility operations.
