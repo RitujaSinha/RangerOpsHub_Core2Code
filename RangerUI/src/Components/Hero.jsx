@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Rangerimage from "../assets/Rangerimage.png";
 
 export default function Hero() {
@@ -6,7 +7,7 @@ export default function Hero() {
     <section className="grid grid-cols-1 md:grid-cols-2 px-10 md:px-20 h-screen items-center gap-10 overflow-hidden">
       <div>
         <h2 className="text-4xl font-bold text-purple-400 mb-4">
-          Zordon's Facility Ops Hub
+          Ranger's Facility Ops Hub
         </h2>
 
         <p className="text-gray-300 leading-relaxed mb-4">
@@ -28,7 +29,7 @@ export default function Hero() {
         <img
           src={Rangerimage}
           alt="Ranger"
-          className="w-80 md:w-96 drop-shadow-[0_0_10px_rgb(168,85,247)]"
+          className="w-80 md:w-96 drop-shadow-[0_0_11px_rgb(168,85,247)]"
         />
       </div>
     </section>
