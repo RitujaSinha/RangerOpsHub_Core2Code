@@ -1,14 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar.jsx";
-import LandingPage from "./Components/LandingPage.jsx";
 import Login from "./Components/Login.jsx";
 import Signup from "./Components/Signup.jsx";
-import ForgotPassword from "./Components/ForgotPassword";
 
 import AdminDashboard from "./Components/AdminDashboard.jsx";
 import EngineerDashboard from "./Components/EngineerDashboard.jsx";
 import RangerDashboard from "./Components/RangerDashboard.jsx";
+
 import ProtectedRoute from "./Components/ProtectedRoute.jsx";
 
 export default function App() {
@@ -17,25 +16,20 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-
-        {/* Protected Routes */}
-                  <Route
-            path="/admin-dashboard"
-            element={
-              <ProtectedRoute allowedRoles={["admin"]}>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-
 
         <Route
-          path="/engineer"
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/engineer-dashboard"
           element={
             <ProtectedRoute allowedRoles={["engineer"]}>
               <EngineerDashboard />
@@ -44,14 +38,17 @@ export default function App() {
         />
 
         <Route
-          path="/ranger"
+          path="/ranger-dashboard"
           element={
             <ProtectedRoute allowedRoles={["ranger"]}>
               <RangerDashboard />
             </ProtectedRoute>
           }
         />
+
+        <Route path="*" element={<Login />} />
       </Routes>
     </div>
   );
 }
+
