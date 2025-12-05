@@ -1,43 +1,40 @@
-import React, { useState } from "react";
-
-const sampleAssigned = [
-  { id: 102, title: "Zord Engine Leakage", status: "IN PROGRESS" },
-  { id: 205, title: "Cooling System Overheating", status: "OPEN" },
-];
-
 export default function EngineerDashboard() {
-  const [tasks, setTasks] = useState(sampleAssigned);
-
-  const startWork = (id) =>
-    setTasks((prev) => prev.map(t => t.id===id ? {...t, status: "IN PROGRESS"} : t));
-
-  const resolve = (id) =>
-    setTasks((prev) => prev.map(t => t.id===id ? {...t, status: "RESOLVED"} : t));
-
-  return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-purple-400 mb-4">Assigned To You – Engineer</h1>
-
-      <div className="bg-gray-900 p-4 rounded-lg shadow mb-6">
-        <table className="w-full text-left">
-          <thead>
-            <tr><th>ID</th><th>Title</th><th>Status</th><th>Actions</th></tr>
+    return (
+      <div className="p-8">
+        <h1 className="text-4xl font-bold mb-6">Engineer Dashboard</h1>
+  
+        <h2 className="text-2xl font-semibold mb-4">Assigned To You</h2>
+  
+        <table className="w-full bg-gray-900 rounded-xl overflow-hidden mb-10">
+          <thead className="bg-gray-800">
+            <tr>
+              <th className="p-3 text-left">ID</th>
+              <th className="p-3 text-left">Title</th>
+              <th className="p-3 text-left">Status</th>
+            </tr>
           </thead>
+  
           <tbody>
-            {tasks.map(t => (
-              <tr key={t.id} className="border-t border-gray-800">
-                <td>{t.id}</td>
-                <td>{t.title}</td>
-                <td>{t.status}</td>
-                <td className="space-x-2">
-                  <button onClick={() => startWork(t.id)} className="px-2 py-1 rounded bg-purple-600">Start Work</button>
-                  <button onClick={() => resolve(t.id)} className="px-2 py-1 rounded bg-green-600">Resolve</button>
-                </td>
-              </tr>
-            ))}
+            <tr className="border-b border-gray-700">
+              <td className="p-3">102</td>
+              <td className="p-3">Zord Engine Leakage</td>
+              <td className="p-3 text-blue-400">IN PROGRESS</td>
+            </tr>
+  
+            <tr>
+              <td className="p-3">205</td>
+              <td className="p-3">Cooling System Overheating</td>
+              <td className="p-3 text-yellow-400">OPEN</td>
+            </tr>
           </tbody>
         </table>
+  
+        <div className="space-x-4">
+          <button className="bg-blue-600 px-4 py-2 rounded">Start Work</button>
+          <button className="bg-green-600 px-4 py-2 rounded">Resolve</button>
+          <button className="bg-gray-600 px-4 py-2 rounded">Add Comment</button>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+  
