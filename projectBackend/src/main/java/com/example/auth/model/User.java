@@ -11,7 +11,6 @@ public class User {
 
     @Column(unique = true)
     private String username;
-
     private String password;
 
     public User() {}
